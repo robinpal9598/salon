@@ -1,8 +1,10 @@
+const nodemailer = require('nodemailer');
 const express = require('express');
 var cors = require('cors')
 require("./db/Config")
 const { body, validationResult } = require('express-validator');
 const app = express();
+const JWT=process.env.JWT;
 const fetchUsers = require('./middleware/fetchUser');
 app.use(express.json());
 const mongoose = require('mongoose');
@@ -15,7 +17,7 @@ var jwt = require('jsonwebtoken');
 app.use(cors());
 const client = new OAuth2Client('807077593811-hjoq9pi53u2pr27p7hd3h40o8b1omv1v.apps.googleusercontent.com');
 const fetchUser = require('./middleware/fetchUser');
-const JWT = "THISISTHESECRETPASSWORD";
+
 // Registration of the new user using the post request
 app.post('/register', [
   body('email', "Enter a valid email").isEmail(),
@@ -203,6 +205,28 @@ app.post('/forgot-password', async (req, resp) => {
       const secret = JWT + olduser.password;
       const token = jwt.sign({ email: olduser.email, id: olduser._id }, secret, { expiresIn: '5m' });
       const link = `http://localhost:4000/reset-password/${olduser._id}/${token}`;
+      let mailTransporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'xyz@gmail.com',
+            pass: '*************'
+        }
+    });
+     
+    let mailDetails = {
+        from: 'xyz@gmail.com',
+        to: 'abc@gmail.com',
+        subject: 'Test mail',
+        text: 'Node.js testing mail for GeeksforGeeks'
+    };
+     
+    mailTransporter.sendMail(mailDetails, function(err, data) {
+        if(err) {
+            console.log('Error Occurs');
+        } else {
+            console.log('Email sent successfully');
+        }
+    });
       console.log(link);
     }
   } catch (error) {

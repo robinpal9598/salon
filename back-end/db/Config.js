@@ -1,2 +1,4 @@
+require('dotenv').config();
+const MONGO_CONNECTON = process.env.MONGO_CONNECTON;
 const mongoose=require('mongoose');
-mongoose.connect('mongodb://0.0.0.0:27017/salon');
+mongoose.connect(MONGO_CONNECTON);
