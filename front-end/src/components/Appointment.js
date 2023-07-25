@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 function RadioButtonForm() {
 
   const [name, setName] = useState();
@@ -30,7 +31,7 @@ function RadioButtonForm() {
     {
       const bookingDate = new Date(date);
       currDate>bookingDate? alert("Please Select the correct date") : services.length === 0 ? alert("Please Select the services") :
-      result = await fetch("http://localhost:4000/appointment", {
+      result = await fetch(`${BASE_URL}/appointment`, {
         method: "post",
         body: JSON.stringify({ email, phone, name, services, date, flag }),
         headers: {

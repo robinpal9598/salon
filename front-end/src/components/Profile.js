@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link,useNavigate } from 'react-router-dom';
 import Receipt from './Receipt';
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 import { useState,useEffect } from 'react';
 import PassedAppointment from './PassedAppointment';
 const currDate=new Date();
@@ -10,7 +11,7 @@ function Profile() {
     //calling an API to get all the appointment receipts of the user
   const getReceipt=async(e)=>{
     
-    let result=await fetch('http://localhost:4000/receipt',{
+    let result=await fetch(`${BASE_URL}/receipt`,{
         method:'get',
         headers:{
             'Content-Type':'application/json',
@@ -25,7 +26,7 @@ function Profile() {
 
   const prevReceipt=async(e)=>{
     
-    let result=await fetch('http://localhost:4000/prevReceipt',{
+    let result=await fetch(`${BASE_URL}/prevReceipt`,{
         method:'get',
         headers:{
             'Content-Type':'application/json',

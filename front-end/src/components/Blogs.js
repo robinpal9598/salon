@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 import BlogsSchema from './BlogsSchema';
 function Offers() {
   const [blog, setBlog] = useState([]);
   const getBlogs = async () => {
-    let result = await fetch('http://localhost:4000/fetchBlogs', {
+    let result = await fetch(`${BASE_URL}/fetchBlogs`, {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',

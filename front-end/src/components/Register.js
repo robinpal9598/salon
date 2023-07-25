@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 import {Link} from 'react-router-dom'
 function Register() {
     // const history = useHistory()
@@ -11,7 +12,7 @@ function Register() {
 
 
         try {
-            const result =await fetch("http://localhost:4000/register", {
+            const result =await fetch(`${BASE_URL}/register`, {
                 method: "post",
                 body: JSON.stringify({ email, password, name }),
                 headers: {

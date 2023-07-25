@@ -1,10 +1,11 @@
 import React from 'react'
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 import {useState} from 'react';
 const Reset = () => {
     const[email,setEmail]=useState("");
     const handleSubmit=async(e)=>{
       e.preventDefault();
-      fetch('http://localhost:4000/forgot-password',{
+      fetch(`${BASE_URL}/forgot-password`,{
         method:"post",
         headers:{
             "content-Type":"application/json",

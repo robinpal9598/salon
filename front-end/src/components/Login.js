@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 import { Link ,useNavigate } from 'react-router-dom';
 function Register() {
     const navigate=useNavigate();
@@ -10,7 +11,7 @@ function Register() {
 
 
         try {
-            const result =await fetch("http://localhost:4000/login", {
+            const result =await fetch(`${BASE_URL}/login`, {
                 method: "post",
                 body: JSON.stringify({ email, password }),
                 headers: {
