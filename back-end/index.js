@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 const express = require('express');
-const MONGO_CONNECTON = process.env.MONGO_CONNECTON||4000;
+// const MONGO_CONNECTON = process.env.MONGO_CONNECTON;
 
 var cors = require('cors')
 require("./db/Config")
@@ -251,6 +251,4 @@ app.get('/reset-password/:id/:token',async(req,resp)=>{
 
 
 
-app.listen(MONGO_CONNECTON, () => {
-  console.log(`Server running on port ${MONGO_CONNECTON}`);
-});
+app.listen(4000);
