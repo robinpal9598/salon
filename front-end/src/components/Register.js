@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-const BASE_URL=process.env.REACT_APP_BASE_URL;
+
 import {Link} from 'react-router-dom'
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 function Register() {
     // const history = useHistory()
     const [name, setName] = useState("");

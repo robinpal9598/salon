@@ -1,9 +1,11 @@
+
 import React from 'react'
 import { Link,useNavigate } from 'react-router-dom';
 import Receipt from './Receipt';
-const BASE_URL=process.env.REACT_APP_BASE_URL;
+
 import { useState,useEffect } from 'react';
 import PassedAppointment from './PassedAppointment';
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 const currDate=new Date();
 function Profile() {
     const[receipt,setReceipt]=useState([]);

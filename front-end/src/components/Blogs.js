@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-const BASE_URL=process.env.REACT_APP_BASE_URL;
+
 import BlogsSchema from './BlogsSchema';
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 function Offers() {
   const [blog, setBlog] = useState([]);
   const getBlogs = async () => {

@@ -1,6 +1,7 @@
 import React from 'react'
-const BASE_URL=process.env.REACT_APP_BASE_URL;
+
 import {useState} from 'react';
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 const Reset = () => {
     const[email,setEmail]=useState("");
     const handleSubmit=async(e)=>{

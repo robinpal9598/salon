@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-const BASE_URL=process.env.REACT_APP_BASE_URL;
+
 import { Link ,useNavigate } from 'react-router-dom';
+const BASE_URL=process.env.REACT_APP_BASE_URL;
 function Register() {
     const navigate=useNavigate();
     const [email, setEmail] = useState("");
